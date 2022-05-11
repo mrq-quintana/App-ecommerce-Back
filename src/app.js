@@ -19,10 +19,11 @@ import {wsping} from './comunication/whatsApp.js'
 
 const app  = express();
 const PORT = process.env.PORT||8080;
-const server = app.listen(PORT,()=>console.log(`Listening on port ${PORT}`))
+const server = app.listen(PORT,()=>console.log(`Escuchando en puerto ${PORT}`))
 const io = new Server(server,{
     cors: {
-        origin: "http://localhost:3000",
+        // origin: "http://localhost:3000",
+        origin: "https://git.heroku.com/app-ecomerce-front.git",
         methods: ["GET", "POST"]
       }
 })
