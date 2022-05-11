@@ -29,7 +29,8 @@ const io = new Server(server,{
 })
 
 //Middlewares
-app.use(cors({credentials:true, origin:"http://localhost:3000"}))
+// app.use(cors({credentials:true, origin:"http://localhost:3000"}))
+app.use(cors({credentials:true, origin:"https://git.heroku.com/app-ecomerce-front.git"}))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser());
