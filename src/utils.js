@@ -20,20 +20,15 @@ export const cookieExtractor = req =>{
     }
     return token;
 }
-/*Middlewares */
+//Middlewares
 export const passportCall = (strategy) =>{
     return async(req, res, next) =>{
         passport.authenticate(strategy,function(err, user, info) {
-            console.log("info")
-            console.log(info)
-            console.log("user")
-            console.log(user)
           if (err) return next(err);
           if (!user) {
              return res.send({error:info.messages?info.messages:info.toString()});
           }
           req.user = user;
-          console.log(user)
           next();
         })(req, res, next);
       }
@@ -43,7 +38,6 @@ const s3 = new aws.S3({
     accessKeyId:config.aws.ACCESS_KEY,
     secretAccessKey:config.aws.SECRET
 })
-
 
 export const uploader = multer({
     storage:multerS3({

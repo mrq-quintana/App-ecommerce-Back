@@ -13,8 +13,6 @@ export default class GenericQueries{
         return this.dao.insert(data,this.model);
     }
     update = async(data)=>{
-        // console.log(data)
-        // data._id=id;
         return this.dao.update(data,this.model);
     }
     delete = async(id)=>{
